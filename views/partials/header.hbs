@@ -1,0 +1,29 @@
+<header class="bg-deep-red-700 text-white p-6 shadow-md flex justify-between items-center">
+  <h1 class="text-3xl font-bold uppercase tracking-widest">{{title}}</h1>
+  {{#if showThemeButton}}
+    <button id="theme-button" type="button" 
+            class="px-4 py-2 border rounded-md transition-all text-sm font-medium
+                  /* Light Mode Colors */
+                  dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-deep-red-700
+                  /* Dark Mode Colors */
+                  border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-deep-red-600 ">
+      {{#if isDarkMode}}Light Mode{{else}}Dark Mode{{/if}}
+    </button>
+  {{/if}}
+</header>
+
+<script>
+  // Add JavaScript to handle theme toggle without page reload
+  document.getElementById('theme-button').addEventListener('click', function(event) {
+    event.preventDefault(); 
+    fetch('/toggle-theme', { method: 'GET' })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          document.body.classList.toggle('dark');
+          this.textContent = data.isDarkMode ? 'Light Mode' : 'Dark Mode';
+        }
+      })
+      .catch(error => console.error('Error toggling theme:', error));
+  });
+</script>

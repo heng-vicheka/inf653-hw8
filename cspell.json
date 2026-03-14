@@ -1,7 +1,15 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["mjs", "prettierrc", "inheritdoc", "commonmark", "exphbs"],
+  "words": [
+    "mjs",
+    "prettierrc",
+    "inheritdoc",
+    "commonmark",
+    "exphbs",
+    "Heng",
+    "Vicheka"
+  ],
   "ignorePaths": ["node_modules", "package-lock.json", ".env.example", ".env"],
   "dictionaries": ["typescript", "node", "npm", "html", "css"]
 }
