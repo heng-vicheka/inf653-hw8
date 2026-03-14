@@ -1,0 +1,5 @@
+views/**/*.hbs
+node_modules/
+package-lock.json
+public/css/*.css
+public/js/*.js

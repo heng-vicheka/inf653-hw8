@@ -12,25 +12,26 @@
     "format": "prettier --write .",
     "build:css": "npx tailwindcss -i ./src/input.css -o ./public/css/output.css --minify",
     "watch:css": "npx tailwindcss -i ./src/input.css -o ./public/css/output.css --watch",
-    "spellcheck": "npx cspell \"**\""
+    "spell": "npx cspell \"**\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heng-vicheka/inf653-hw-7.git"
+    "url": "git+https://github.com/heng-vicheka/inf653-hw8.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/heng-vicheka/inf653-hw-7/issues"
+    "url": "https://github.com/heng-vicheka/inf653-hw8/issues"
   },
-  "homepage": "https://github.com/heng-vicheka/inf653-hw-7#readme",
+  "homepage": "https://github.com/heng-vicheka/inf653-hw8#readme",
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "express-handlebars": "^8.0.3",
     "express-session": "^1.19.0",
+    "hbs": "^4.2.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
@@ -47,6 +48,7 @@
     "nodemon": "^3.1.14",
     "postcss": "^8.5.6",
     "prettier": "^3.8.1",
+    "prettier-plugin-handlebars": "^0.0.1",
     "session-file-store": "^1.5.0",
     "tailwindcss": "^3.4.4"
   }

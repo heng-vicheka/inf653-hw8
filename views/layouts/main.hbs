@@ -1,9 +1,11 @@
 <html>
   <head>
     <title>Title</title>
-    <link rel="stylesheet" href="/css/output.css" />
+    <link rel='stylesheet' href='/css/output.css' />
   </head>
-  <body class='bg-gray-100'>
-    {{{body}}}
+  <body class="flex flex-col min-h-screen {{#if isDarkMode}}dark{{/if}} bg-white dark:bg-gray-900 transition-colors">
+    <div class="flex-grow dark:bg-gray-900">
+      {{{body}}}
+    </div>
   </body>
 </html>
