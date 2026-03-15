@@ -4,7 +4,6 @@ const exphbs = require('express-handlebars');
 const hbs = require('hbs');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-// const { on } = require('events');
 require('dotenv').config();
 
 const app = express();
@@ -21,11 +20,6 @@ app.engine(
 );
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
-
-//helper function to compare values in handlebars
-hbs.registerHelper('ifEquals', function (arg1, arg2, options) {
-  return arg1 === arg2 ? options.fn(this) : options.inverse(this);
-});
 
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
@@ -75,7 +69,7 @@ const THEMES = {
 
 // Define routes
 app.get('/', (req, res) => {
-  res.redirect('/login', { showThemeButton: false });
+  res.redirect(303, '/login');
 });
 
 // Login get route
@@ -91,7 +85,7 @@ app.post('/login', express.urlencoded({ extended: true }), (req, res) => {
 
   if (user) {
     req.session.user = user.username;
-    res.redirect('/profile');
+    res.redirect(303, '/profile');
   } else {
     res.render('login', {
       error: 'Invalid email or password',
@@ -103,7 +97,7 @@ app.post('/login', express.urlencoded({ extended: true }), (req, res) => {
 // profile route
 app.get('/profile', (req, res) => {
   if (!req.session.user) {
-    return res.redirect('/login');
+    return res.redirect(303, '/login');
   }
 
   const userData = users[req.session.user];
@@ -136,7 +130,7 @@ app.get('/logout', (req, res) => {
       console.error('Error destroying session:', err);
     }
     res.clearCookie('connect.sid');
-    res.redirect('/login');
+    res.redirect(303, '/login');
   });
 });
 
